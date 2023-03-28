@@ -1,0 +1,24 @@
+<h2><%= @restaurant.name %></h2>
+
+<p>Address :<%= @restaurant.address %> </p>
+<p>Telephone : <%= @restaurant.telephone %> </p>
+<p>Category: <%= @restaurant.category %> </p>
+<p>Reviews:</p>
+<% @restaurant.reviews.each do |r|%>
+ <p> rating: <%= r.rating %> <br> content : <%= r.content %>
+</p>
+<% end %>
+
+
+<%# <%= link_to 'Add a review', new_restaurant_review_path(@restaurant.id) %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class= "col-xs-12 col-sm-4 col-sm-offset-4">
+      <%= simple_form_for [@restaurant, @review] do |f| %>
+        <%= f.input :rating, collection: 0..5%>
+        <%= f.input :content%>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>

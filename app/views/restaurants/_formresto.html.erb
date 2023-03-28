@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class= "col-xs-12 col-sm-4 col-sm-offset-4">
+      <%= simple_form_for [@restaurant] do |f| %>
+        <%= f.input :name%>
+        <%= f.input :address%>
+        <%= f.input :telephone%>
+        <%= f.input :category, collection: Restaurant::CATEGORIES  %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
